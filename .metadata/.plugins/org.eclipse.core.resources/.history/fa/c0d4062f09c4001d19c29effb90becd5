@@ -1,0 +1,53 @@
+package com.doctor1.demo.doctor1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+@RestController
+
+public class patientcontroller {
+	
+	
+	@Autowired
+	patientRepo patRepo;
+	
+	
+	@GetMapping("/sayHello")
+	public String sayHello() {
+		return "Patient Information";
+		
+	}
+	@GetMapping("/regPatient")
+	public patient registerPatient() {
+
+		patient pat = new patient(101,"Geetha",10,3511);
+		patient savedPat = patRepo.save(pat);
+		//return " Patient " + savedPatient.getPatientName() + " stored in the database ";
+		return savedPat;
+	}
+	
+	@PostMapping("/createPatient")
+	public patient createpatient(@RequestBody patient pat) {
+		return patRepo.save(pat);
+	}
+	
+	//@PostMapping("/createPatient")
+	//public patient createPatient(@RequestBody patient pat) {
+	//return patRepo.save(pat);
+	
+	//}
+	
+	@GetMapping("/getPatient/{PatientId}")
+	public patient getPatientDetails(@PathVariable(value="PatientId")int PatientId) {
+	return patRepo.findById(PatientId).get();
+	}
+
+
+
+}

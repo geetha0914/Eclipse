@@ -1,0 +1,51 @@
+package com.Hospital.demo.Hospital;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+public class PatientController {
+
+
+    @Autowired
+	PatientRepo PatientRepository;
+	
+	@GetMapping("/sayHello")
+	public String sayHello() {
+		return "Patient Information";
+		
+	}
+	@GetMapping("/regPatient")
+	public Patient registerPatient() {
+
+		Patient pat = new Patient(101,"Geetha",10000,35);
+		Patient savedPat = PatientRepository.save(pat);
+		//return " Patient " + savedPatient.getPatientName() + " stored in the database ";
+		return savedPat;
+		
+	}
+	@GetMapping("/getPatient")
+	public String getPatient() {
+		 Patient pat = PatientRepository.findById(101).get();
+		return pat.getPatientName() +  "|" + pat.getAdvance()+  "|" + pat.getAge();
+		
+		
+	}
+	@PostMapping("/createPatient")
+	public Patient createPatient(@RequestBody Patient pat) {
+	return PatientRepository.save(pat);
+	
+	}
+	
+	@GetMapping("/getPatient/{PatientId}")
+	public Patient getPatientDetails(@PathVariable(value="PatientId")int PatientId) {
+	return PatientRepository.findById(PatientId).get();
+	}
+
+
+}

@@ -1,0 +1,124 @@
+package Doctor;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.Hospital.demo.Hospital.Patient;
+
+public class doctorController {
+
+	
+	
+	 @Autowired
+		dotorRepo doctorRepository;
+		
+		@GetMapping("/Whats a problem")
+		public String sayHello() {
+			return "I have fever and body pains";
+			
+
+	}
+
+		
+		//@GetMapping("/regDoctor")
+		//public doctor registerDoctor() {
+
+			//doctor doc = new doctor(1,"manasa",99999,99898.0);
+			//doctor savedDoc = doctorRepository.save(doc);
+			//return " Doctor " + savedDoctor.getDoctorName() + " stored in the database ";
+			//return savedDoc;
+			
+		
+		//@GetMapping("/getDocter")
+		//public String getDocter () {
+		//docter doc = DocterRepository.findById(101).get();
+		//return doc.getDocterName() + "|" + do .getAdvance()+ "|" + doc.getAge();
+
+
+
+
+// 1. getDoctor
+
+ // @RequestMapping(value="/getDoctor",method=RequestMethod.GET)
+ // public String getDoctor() {
+	// Doctor doctorRepo.findById(101).get();
+	// return 
+	  
+
+	//@RequestMapping(value="/getPatient",method=RequestMethod.GET)
+	//public String getPatient() {
+		 //Patient pat = PatientRepository.findById(101).get();
+		//return pat.getPatientName() +  "|" + pat.getAdvance()+  "|" + pat.getAge();
+		
+		
+	//}
+	
+	
+	
+	//4.createPatient
+	
+	
+	//@RequestMapping(value="/createPatient",method=RequestMethod.POST)
+	//public Patient createPatient(@RequestBody Patient pat) {
+	//return PatientRepository.save(pat);
+	
+	//}
+	
+	//5.getPatient/{PatientId
+	
+	
+	//@RequestMapping(value="/getPatient/{PatientId}",method=RequestMethod.GET)
+	//public Patient getPatientDetails(@PathVariable(value="PatientId")int PatientId) {
+	//return PatientRepository.findById(PatientId).get();
+	
+	
+	
+	//}
+	
+//6.getAllPatientList
+	
+//@RequestMapping(value= {"/getAllPatientList","/"},method=RequestMethod.GET)
+//public Iterable<Patient> getAllPatientList(){
+//	return PatientRepository.findAll();
+//}
+	
+
+  
+	//7.updatePatient/{patientId
+
+//	@RequestMapping(value="/updatePatient/{patientId}",method=RequestMethod.PUT)
+//	public ResponseEntity<Object> UpdatePatient(@RequestBody Patient patient,@PathVariable int patientId){
+	//	Optional<Patient> patientOptional = PatientRepository.findById(patientId);
+		//if (patientOptional.isEmpty())
+		//	return ResponseEntity.notFound().build();
+		//patient.setPatientId(patientId);
+	//	PatientRepository.save(patient);
+//		return ResponseEntity.noContent().build();
+				
+  
+  
+	
+	//8. "DeletePatient/{patientID
+ // @RequestMapping(value="DeletePatient/{patientID}",method=RequestMethod.DELETE)
+  //public void deletePatient(@PathVariable int patientId) {
+  //	PatientRepository.deleteById(patientId);
+  
+ 
+	
+	}
+	
+	
+
+
+
+
+
+
+		
+		
+
+
+
+
